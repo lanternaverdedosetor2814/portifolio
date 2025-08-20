@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio - Cláudio José Silva Gomes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #3b82f6;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 2.5rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0.5rem;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: #e5e7eb;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 1.25rem;
+            height: 1.25rem;
+            border-radius: 50%;
+            background: #3b82f6;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .company-logo {
+            transition: all 0.3s ease;
+        }
+        
+        .company-logo:hover {
+            transform: scale(1.1);
+            filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.5));
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Header/Navigation -->
+    <header class="fixed w-full bg-white shadow-md z-50">
+        <nav class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold text-blue-600">Cláudio Gomes</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link">Início</a>
+                    <a href="#about" class="nav-link">Sobre</a>
+                    <a href="#education" class="nav-link">Formação</a>
+                    <a href="#experience" class="nav-link">Experiência</a>
+                    <a href="#projects" class="nav-link">Projetos</a>
+                    <a href="#contact" class="nav-link">Contato</a>
+                </div>
+                <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4">
+                <div class="flex flex-col space-y-3">
+                    <a href="#home" class="nav-link">Início</a>
+                    <a href="#about" class="nav-link">Sobre</a>
+                    <a href="#education" class="nav-link">Formação</a>
+                    <a href="#experience" class="nav-link">Experiência</a>
+                    <a href="#projects" class="nav-link">Projetos</a>
+                    <a href="#contact" class="nav-link">Contato</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 px-6 bg-gradient-to-r from-blue-500 to-blue-700 text-white">
+        <div class="container mx-auto flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0 fade-in">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Cláudio José Silva Gomes</h1>
+                <h2 class="text-2xl md:text-3xl mb-6">Professor e Profissional de TI</h2>
+                <p class="text-lg mb-8">Mais de 25 anos de experiência em Tecnologia da Informação e Educação</p>
+                <div class="flex space-x-4">
+                    <a href="#contact" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition duration-300">Contato</a>
+                    <a href="#projects" class="border-2 border-white text-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-blue-600 transition duration-300">Projetos</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center floating">
+                <div class="bg-white p-2 rounded-full shadow-xl">
+                    <img src="foto_perfil.jpg" 
+                         alt="Cláudio Gomes" 
+                         class="w-64 h-64 rounded-full object-cover border-4 border-blue-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6 bg-white">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-16 relative">
+                <span class="relative inline-block">
+                    Sobre Mim
+                    <span class="absolute bottom-0 left-0 w-full h-1 bg-blue-500"></span>
+                </span>
+            </h2>
+            
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
+                    <img src="foto_perfil.jpg" 
+                         alt="Cláudio Gomes" 
+                         class="w-64 h-64 rounded-full object-cover border-4 border-blue-500 shadow-lg">
+                </div>
+                <div class="md:w-2/3 md:pl-12">
+                    <p class="text-lg mb-6">
+                        Profissional com mais de 25 anos de experiência na área de Tecnologia da Informação e Educação, 
+                        atuando como professor em instituições de ensino técnico e superior, além de experiência em 
+                        administração de redes e projetos educacionais.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="text-xl font-semibold mb-3 text-blue-600">Dados Pessoais</h3>
+                            <ul class="space-y-2">
+                                <li><span class="font-medium">Idade:</span> 51 anos</li>
+                                <li><span class="font-medium">Nacionalidade:</span> Brasileiro</li>
+                                <li><span class="font-medium">Estado Civil:</span> Casado</li>
+                                <li><span class="font-medium">Localização:</span> Pindamonhangaba/SP</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-3 text-blue-600">Idiomas</h3>
+                            <ul class="space-y-2">
+                                <li>Português - Nativo</li>
+                                <li>Inglês - Intermediário</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-20 px-6 bg-gray-100">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-16 relative">
+                <span class="relative inline-block">
+                    Formação Acadêmica
+                    <span class="absolute bottom-0 left-0 w-full h-1 bg-blue-500"></span>
+                </span>
+            </h2>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="bg-white p-6 rounded-lg shadow-md card-hover transition duration-300">
+                        <h3 class="text-xl font-semibold text-blue-600">Pós-Graduação em Inteligência Artificial</h3>
+                        <p class="text-gray-600 mb-2">UFV (em curso)</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="bg-white p-6 rounded-lg shadow-md card-hover transition duration-300">
+                        <h3 class="text-xl font-semibold text-blue-600">Aperfeiçoamento em Tecnologias Educacionais</h3>
+                        <p class="text-gray-600 mb-2">UFSCar (2019)</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="bg-white p-6 rounded-lg shadow-md card-hover transition duration-300">
+                        <h3 class="text-xl font-semibold text-blue-600">Licenciatura em Educação Profissional de Nível Médio</h3>
+                        <p class="text-gray-600 mb-2">FATEC Guaratinguetá (2014)</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="bg-white p-6 rounded-lg shadow-md card-hover transition duration-300">
+                        <h3 class="text-xl font-semibold text-blue-600">Especialização em Informática na Educação</h3>
+                        <p class="text-gray-600 mb-2">UFRGS (2006)</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="bg-white p-6 rounded-lg shadow-md card-hover transition duration-300">
+                        <h3 class="text-xl font-semibold text-blue-600">Graduação em Tecnólogo em Informática</h3>
+                        <p class="text-gray-600 mb-2">UNITAU (1999)</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="bg-white p-6 rounded-lg shadow-md card-hover transition duration-300">
+                        <h3 class="text-xl font-semibold text-blue-600">Técnico em Processamento de Dados</h3>
+                        <p class="text-gray-600 mb-2">Univap (1993)</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16">
+                <h3 class="text-2xl font-bold text-center mb-8 text-blue-600">Cursos Complementares</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-md card-hover transition duration-300">
+                        <h4 class="font-semibold mb-2">Administração Linux – Básico e Avançado</h4>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md card-hover transition duration-300">
+                        <h4 class="font-semibold mb-2">Montagem e Manutenção de PCs – SENAC</h4>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md card-hover transition duration-300">
+                        <h4 class="font-semibold mb-2">Arduino e Robótica – CETEC</h4>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md card-hover transition duration-300">
+                        <h4 class="font-semibold mb-2">Inteligência Artificial – CETEC</h4>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md card-hover transition duration-300">
+                        <h4 class="font-semibold mb-2">Hackathon e Gamificação em sala de aula – CETEC</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 px-6 bg-white">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-16 relative">
+                <span class="relative inline-block">
+                    Experiência Profissional
+                    <span class="absolute bottom-0 left-0 w-full h-1 bg-blue-500"></span>
+                </span>
+            </h2>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="mb-12">
+                    <h3 class="text-2xl font-bold mb-8 text-blue-600">Docência</h3>
+                    
+                    <div class="space-y-8">
+                        <div class="bg-gray-50 p-6 rounded-lg shadow-md card-hover transition duration-300">
+                            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                                <h4 class="text-xl font-semibold">Professor - FATEC Jacareí</h4>
+                                <span class="text-blue-600 font-medium">2023–2025</span>
+                            </div>
+                            <p class="text-gray-600 mb-3">Disciplinas: Programação Web, Algoritmos e Linguagem de Programação I</p>
+                            <div class="flex justify-center mt-4">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/FATEC_logo.svg/1200px-FATEC_logo.svg.png" 
+                                     alt="FATEC Logo" 
+                                     class="h-16 company-logo">
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-6 rounded-lg shadow-md card-hover transition duration-300">
+                            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                                <h4 class="text-xl font-semibold">Professor - FATECs Taubaté, SJC, Mogi, Taquaritinga, Itapira</h4>
+                                <span class="text-blue-600 font-medium">2020–2022</span>
+                            </div>
+                            <p class="text-gray-600 mb-3">Disciplinas: Programação Web, Algoritmos e Banco de Dados</p>
+                            <div class="flex justify-center mt-4">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/FATEC_logo.svg/1200px-FATEC_logo.svg.png" 
+                                     alt="FATEC Logo" 
+                                     class="h-16 company-logo">
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-6 rounded-lg shadow-md card-hover transition duration-300">
+                            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                                <h4 class="text-xl font-semibold">Professor - Faculdade Anhanguera – Taubaté</h4>
+                                <span class="text-blue-600 font-medium">2011–2017</span>
+                            </div>
+                            <p class="text-gray-600 mb-3">Disciplinas: Programação, Redes, Banco de Dados e Sistemas de Informação</p>
+                            <div class="flex justify-center mt-4">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Anhanguera_Educacional_logo.svg/1200px-Anhanguera_Educacional_logo.svg.png" 
+                                     alt="Anhanguera Logo" 
+                                     class="h-16 company-logo">
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-6 rounded-lg shadow-md card-hover transition duration-300">
+                            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                                <h4 class="text-xl font-semibold">Professor - ETECs (SJC, Caçapava e Pindamonhangaba)</h4>
+                                <span class="text-blue-600 font-medium">2009–Atual</span>
+                            </div>
+                            <p class="text-gray-600 mb-3">Disciplinas: Redes, Programação, Bancos de Dados, Sistemas Operacionais e Robótica Educacional</p>
+                            <div class="flex justify-center mt-4">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Centro_Paula_Souza_logo.svg/1200px-Centro_Paula_Souza_logo.svg.png" 
+                                     alt="ETEC Logo" 
+                                     class="h-16 company-logo">
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-6 rounded-lg shadow-md card-hover transition duration-300">
+                            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                                <h4 class="text-xl font-semibold">Professor - Instituto Embraer</h4>
+                                <span class="text-blue-600 font-medium">2002–2007</span>
+                            </div>
+                            <p class="text-gray-600 mb-3">Disciplinas: Informática aplicada e Jogos Educacionais</p>
+                            <div class="flex justify-center mt-4">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Embraer_logo.svg/1200px-Embraer_logo.svg.png" 
+                                     alt="Embraer Logo" 
+                                     class="h-16 company-logo">
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-6 rounded-lg shadow-md card-hover transition duration-300">
+                            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                                <h4 class="text-xl font-semibold">Professor - Colégio Comercial de Caçapava</h4>
+                                <span class="text-blue-600 font-medium">1996–2009</span>
+                            </div>
+                            <p class="text-gray-600 mb-3">Disciplinas: Informática e Contabilidade</p>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-6 rounded-lg shadow-md card-hover transition duration-300">
+                            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                                <h4 class="text-xl font-semibold">Professor - ETEP Caçapava</h4>
+                                <span class="text-blue-600 font-medium">2000–2001</span>
+                            </div>
+                            <p class="text-gray-600 mb-3">Disciplinas: Programação e Sistemas</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-bold mb-8 text-blue-600">Outras Experiências</h3>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md card-hover transition duration-300">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                            <h4 class="text-xl font-semibold">Administrador de Redes - Instituto Embraer</h4>
+                            <span class="text-blue-600 font-medium">2009–2013</span>
+                        </div>
+                        <div class="flex justify-center mt-4">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Embraer_logo.svg/1200px-Embraer_logo.svg.png" 
+                                 alt="Embraer Logo" 
+                                 class="h-16 company-logo">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-6 bg-gray-100">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-16 relative">
+                <span class="relative inline-block">
+                    Projetos e Realizações
+                    <span class="absolute bottom-0 left-0 w-full h-1 bg-blue-500"></span>
+                </span>
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-lg card-hover transition duration-300">
+                    <div class="text-blue-500 text-4xl mb-4">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Publicação Acadêmica</h3>
+                    <p class="text-gray-600 mb-4">
+                        Coautor do livro "Tecnologias Educacionais – Aplicações e Possibilidades" (Appris, 2019).
+                    </p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-lg card-hover transition duration-300">
+                    <div class="text-blue-500 text-4xl mb-4">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Premiações</h3>
+                    <p class="text-gray-600 mb-4">
+                        Premiações em competições de robótica e hackathons (2019–2021).
+                    </p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-lg card-hover transition duration-300">
+                    <div class="text-blue-500 text-4xl mb-4">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Robótica Educacional</h3>
+                    <p class="text-gray-600 mb-4">
+                        Desenvolvimento de projetos de robótica com alunos do ensino técnico, utilizando Arduino e outras plataformas.
+                    </p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-lg card-hover transition duration-300">
+                    <div class="text-blue-500 text-4xl mb-4">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Projetos de Programação</h3>
+                    <p class="text-gray-600 mb-4">
+                        Orientação de projetos de programação web, sistemas de informação e banco de dados com alunos de graduação.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6 bg-blue-600 text-white">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-16 relative">
+                <span class="relative inline-block">
+                    Contato
+                    <span class="absolute bottom-0 left-0 w-full h-1 bg-white"></span>
+                </span>
+            </h2>
+            
+            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-xl font-semibold mb-6">Entre em Contato</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="text-2xl mr-4 mt-1">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">E-mail</h4>
+                                <p>profclaudiojose@hotmail.com</p>
+                                <p>claudio.gomes2@etec.sp.gov.br</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-2xl mr-4 mt-1">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Telefone</h4>
+                                <p>(12) 3645-6155</p>
+                                <p>(12) 99148-7761</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-2xl mr-4 mt-1">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Localização</h4>
+                                <p>Pindamonhangaba/SP, Brasil</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="font-medium mb-4">Redes Sociais</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-white text-blue-600 w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-100 transition duration-300">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="bg-white text-blue-600 w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-100 transition duration-300">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="bg-white text-blue-600 w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-100 transition duration-300">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold mb-6">Envie uma Mensagem</h3>
+                    <form class="space-y-4">
+                        <div>
+                            <label for="name" class="block mb-1">Nome</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 rounded text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300">
+                        </div>
+                        <div>
+                            <label for="email" class="block mb-1">E-mail</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 rounded text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300">
+                        </div>
+                        <div>
+                            <label for="message" class="block mb-1">Mensagem</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-2 rounded text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300"></textarea>
+                        </div>
+                        <button type="submit" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition duration-300">
+                            Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 px-6">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-xl font-bold">Cláudio José Silva Gomes</h3>
+                    <p>Professor e Profissional de TI</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#home" class="hover:text-blue-300 transition duration-300">Início</a>
+                    <a href="#about" class="hover:text-blue-300 transition duration-300">Sobre</a>
+                    <a href="#education" class="hover:text-blue-300 transition duration-300">Formação</a>
+                    <a href="#experience" class="hover:text-blue-300 transition duration-300">Experiência</a>
+                    <a href="#projects" class="hover:text-blue-300 transition duration-300">Projetos</a>
+                    <a href="#contact" class="hover:text-blue-300 transition duration-300">Contato</a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-6 pt-6 text-center text-gray-400">
+                <p>&copy; 2023 Cláudio Gomes. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+
+        // Add fade-in animation to sections as they come into view
+        const sections = document.querySelectorAll('section');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
